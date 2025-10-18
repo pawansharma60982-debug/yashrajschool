@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
         :root {
             --primary: #4f46e5;
@@ -79,6 +81,91 @@
             background: var(--primary-dark);
         }
         
+        /* Swiper Slider Styles */
+        .school-slider {
+            margin-top: 76px; /* Account for fixed navbar */
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            z-index: 2;
+        }
+        
+        .slide-category {
+            display: inline-block;
+            background: var(--gradient-primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .slide-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .slide-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background: rgba(0, 0, 0, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-top: -25px;
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.2rem;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: white;
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--primary);
+        }
+        
         /* Navbar Styles */
         .navbar {
             background: rgba(255, 255, 255, 0.95);
@@ -87,6 +174,10 @@
             padding: 1rem 0;
             transition: var(--transition);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         
         .navbar.scrolled {
@@ -157,7 +248,7 @@
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 180px 0 120px;
+            padding: 120px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -202,6 +293,7 @@
             animation: fadeInUp 1s ease 0.4s both;
         }
         
+        /* Rest of your existing CSS styles remain unchanged */
         /* Section Styles */
         .section-padding {
             padding: 100px 0;
@@ -951,6 +1043,14 @@
             .section-padding {
                 padding: 80px 0;
             }
+            
+            .school-slider {
+                height: 50vh;
+            }
+            
+            .slide-title {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -991,6 +1091,22 @@
             .attendance-row div:nth-child(5) {
                 display: none;
             }
+            
+            .school-slider {
+                height: 40vh;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .slide-title {
+                font-size: 1.3rem;
+            }
+            
+            .slide-description {
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1000,6 +1116,10 @@
             
             .section-padding {
                 padding: 60px 0;
+            }
+            
+            .school-slider {
+                height: 35vh;
             }
         }
     </style>
@@ -1035,6 +1155,66 @@
             </div>
         </div>
     </nav>
+
+    <!-- School Image Slider -->
+    <section class="school-slider">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1: School Building -->
+                <div class="swiper-slide">
+                    <img src="https://yashrajenglishhighschool.in/images/school-building.jpg" alt="Yashraj English High School Building">
+                    <div class="slide-content">
+                        <span class="slide-category">School Infrastructure</span>
+                        <h2 class="slide-title">Our Modern School Building</h2>
+                        <p class="slide-description">Experience our state-of-the-art campus with modern classrooms, science labs, and sports facilities designed to provide the best learning environment.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2: Teachers -->
+                <div class="swiper-slide">
+                    <img src="https://yashrajenglishhighschool.in/images/teachers.jpg" alt="Our Dedicated Teaching Staff">
+                    <div class="slide-content">
+                        <span class="slide-category">Teaching Staff</span>
+                        <h2 class="slide-title">Meet Our Expert Faculty</h2>
+                        <p class="slide-description">Our highly qualified and experienced teachers are committed to nurturing young minds and shaping future leaders through innovative teaching methods.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3: Toppers -->
+                <div class="swiper-slide">
+                    <img src="https://yashrajenglishhighschool.in/images/toppers.jpg" alt="Our Academic Achievers">
+                    <div class="slide-content">
+                        <span class="slide-category">Academic Excellence</span>
+                        <h2 class="slide-title">Celebrating Our Achievers</h2>
+                        <p class="slide-description">Proudly showcasing our top-performing students who have excelled in academics and brought laurels to our institution.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4: Admission -->
+                <div class="swiper-slide">
+                    <img src="https://yashrajenglishhighschool.in/images/admission.jpg" alt="Admissions Open">
+                    <div class="slide-content">
+                        <span class="slide-category">Admissions</span>
+                        <h2 class="slide-title">Admissions Open 2025-26</h2>
+                        <p class="slide-description">Enroll now for classes 1st to 12th. Limited seats available. Join our community of learners and achievers.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5: Events -->
+                <div class="swiper-slide">
+                    <img src="https://yashrajenglishhighschool.in/images/events.jpg" alt="School Events">
+                    <div class="slide-content">
+                        <span class="slide-category">Events & Activities</span>
+                        <h2 class="slide-title">Celebrating School Events</h2>
+                        <p class="slide-description">From annual day celebrations to sports events, we provide a platform for students to showcase their talents beyond academics.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
 
     <!-- Home Section -->
     <section id="home" class="hero-section">
@@ -1590,11 +1770,264 @@
         </div>
     </div>
 
+    <!-- Add User Modal (Updated with Password Fields) -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="newUserName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="newUserEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role</label>
+                            <select class="form-select" id="newUserRole" required>
+                                <option value="" selected disabled>Select Role</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="principal">Principal</option>
+                            </select>
+                        </div>
+                        <div class="mb-3" id="newUserStandardField" style="display: none;">
+                            <label class="form-label">Standard</label>
+                            <select class="form-select" id="newUserStandard">
+                                <option value="" selected disabled>Select Standard</option>
+                                <option value="1">1st Standard</option>
+                                <option value="2">2nd Standard</option>
+                                <option value="3">3rd Standard</option>
+                                <option value="4">4th Standard</option>
+                                <option value="5">5th Standard</option>
+                                <option value="6">6th Standard</option>
+                                <option value="7">7th Standard</option>
+                                <option value="8">8th Standard</option>
+                                <option value="9">9th Standard</option>
+                                <option value="10">10th Standard</option>
+                                <option value="11">11th Standard</option>
+                                <option value="12">12th Standard</option>
+                            </select>
+                        </div>
+                        <!-- NEW: Password Fields -->
+                        <div class="mb-3">
+                            <label class="form-label">Set Password</label>
+                            <input type="password" class="form-control" id="newUserPassword" required minlength="6">
+                            <div class="form-text">Password must be at least 6 characters long</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="newUserConfirmPassword" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addNewUser()">Add User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Student Details Modal for Principal -->
+    <div class="modal fade" id="studentDetailsModal" tabindex="-1" aria-labelledby="studentDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="studentDetailsModalLabel">Student Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="principalClassSelect" class="form-label">Select Class</label>
+                        <select class="form-select" id="principalClassSelect">
+                            <option value="">-- Select Class --</option>
+                            <option value="1">1st Standard</option>
+                            <option value="2">2nd Standard</option>
+                            <option value="3">3rd Standard</option>
+                            <option value="4">4th Standard</option>
+                            <option value="5">5th Standard</option>
+                            <option value="6">6th Standard</option>
+                            <option value="7">7th Standard</option>
+                            <option value="8">8th Standard</option>
+                            <option value="9">9th Standard</option>
+                            <option value="10">10th Standard</option>
+                            <option value="11">11th Standard</option>
+                            <option value="12">12th Standard</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Caste</th>
+                                    <th>Attendance (Days)</th>
+                                    <th>Percentage</th>
+                                    <th>Fees Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="principalStudentsTable">
+                                <!-- Students will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Fees Dashboard Modal -->
+    <div class="modal fade" id="feesDashboardModal" tabindex="-1" aria-labelledby="feesDashboardModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feesDashboardModalLabel">Fees Management</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="feesClassSelect" class="form-label">Select Class</label>
+                        <select class="form-select" id="feesClassSelect">
+                            <option value="">-- Select Class --</option>
+                            <option value="1">1st Standard</option>
+                            <option value="2">2nd Standard</option>
+                            <option value="3">3rd Standard</option>
+                            <option value="4">4th Standard</option>
+                            <option value="5">5th Standard</option>
+                            <option value="6">6th Standard</option>
+                            <option value="7">7th Standard</option>
+                            <option value="8">8th Standard</option>
+                            <option value="9">9th Standard</option>
+                            <option value="10">10th Standard</option>
+                            <option value="11">11th Standard</option>
+                            <option value="12">12th Standard</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <th>Name</th>
+                                    <th>Total Fees</th>
+                                    <th>Paid Fees</th>
+                                    <th>Due Fees</th>
+                                    <th>Last Payment Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="feesStudentsTable">
+                                <!-- Students will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Update Fees Modal -->
+    <div class="modal fade" id="updateFeesModal" tabindex="-1" aria-labelledby="updateFeesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateFeesModalLabel">Update Fees</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateFeesForm">
+                        <input type="hidden" id="updateFeesStudentId">
+                        <div class="mb-3">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" class="form-control" id="updateFeesStudentName" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Total Fees (₹)</label>
+                            <input type="number" class="form-control" id="updateFeesTotal" min="0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Paid Fees (₹)</label>
+                            <input type="number" class="form-control" id="updateFeesPaid" min="0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Payment Date</label>
+                            <input type="date" class="form-control" id="updateFeesDate" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveFeesUpdate()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Attendance History Modal -->
+    <div class="modal fade" id="attendanceHistoryModal" tabindex="-1" aria-labelledby="attendanceHistoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="attendanceHistoryModalLabel">Attendance History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="historyClassSelect" class="form-label">Class</label>
+                            <select class="form-select" id="historyClassSelect">
+                                <option value="">-- Select Class --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="historyDateFrom" class="form-label">From Date</label>
+                            <input type="date" class="form-control" id="historyDateFrom">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="historyDateTo" class="form-label">To Date</label>
+                            <input type="date" class="form-control" id="historyDateTo">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Class</th>
+                                    <th>Present</th>
+                                    <th>Absent</th>
+                                    <th>Late</th>
+                                    <th>Left Early</th>
+                                    <th>Marked By</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendanceHistoryTable">
+                                <!-- Attendance history will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Notification -->
     <div class="notification" id="notification"></div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <script type="module">
         // Import Firebase modules
@@ -1623,31 +2056,36 @@
             where, 
             updateDoc, 
             writeBatch,
-            limit
+            limit,
+            Timestamp
         } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
         import { 
-            getStorage, 
+            getDatabase, 
             ref, 
-            uploadBytes, 
-            getDownloadURL 
-        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+            set, 
+            get, 
+            child, 
+            push,
+            onValue
+        } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
-        // Firebase configuration
+        // Your Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyAtBkB9ldsgcKSMF-lKRtyjbsipYvOTtH0",
-            authDomain: "student-data-9f366.firebaseapp.com",
-            projectId: "student-data-9f366",
-            storageBucket: "student-data-9f366.firebasestorage.app",
-            messagingSenderId: "817051783708",
-            appId: "1:817051783708:web:188a75008cabd0c3f5c5d9",
-            measurementId: "G-HCSZE7BMZ7"
+            apiKey: "AIzaSyAW5bnjnNsUXTJM032PzfPhQ8F60g9yp2g",
+            authDomain: "techinfowithpawan.firebaseapp.com",
+            projectId: "techinfowithpawan",
+            storageBucket: "techinfowithpawan.firebasestorage.app",
+            messagingSenderId: "790651883822",
+            appId: "1:790651883822:web:6bf0c3814121436acaeabf",
+            measurementId: "G-3D8TVP86GF",
+            databaseURL: "https://techinfowithpawan-default-rtdb.firebaseio.com/"
         };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const storage = getStorage(app);
+        const realtimeDb = getDatabase(app); // NEW: Realtime Database
 
         // Cloudinary Configuration
         const cloudinaryConfig = {
@@ -1669,6 +2107,82 @@
             { name: "Gaurav", percentage: "89.7%", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
             { name: "Shlok Paswan", percentage: "87%", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" },
         ];
+
+        // NEW: Initialize Swiper
+        document.addEventListener('DOMContentLoaded', function() {
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 0,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        });
+
+        // NEW: Realtime Database Functions
+        async function saveToRealtimeDB(path, data) {
+            try {
+                await set(ref(realtimeDb, path), data);
+                return true;
+            } catch (error) {
+                console.error("Error saving to Realtime DB:", error);
+                return false;
+            }
+        }
+
+        async function getFromRealtimeDB(path) {
+            try {
+                const snapshot = await get(child(ref(realtimeDb), path));
+                return snapshot.exists() ? snapshot.val() : null;
+            } catch (error) {
+                console.error("Error reading from Realtime DB:", error);
+                return null;
+            }
+        }
+
+        // NEW: Real-time notifications using Realtime DB
+        function setupRealtimeNotifications(userId) {
+            const notificationsRef = ref(realtimeDb, `notifications/${userId}`);
+            
+            onValue(notificationsRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    // Convert object to array and show latest notification
+                    const notifications = Object.values(data);
+                    const latestNotification = notifications[notifications.length - 1];
+                    
+                    if (latestNotification && !latestNotification.read) {
+                        showNotification(latestNotification.message, 'success');
+                        
+                        // Mark as read
+                        set(ref(realtimeDb, `notifications/${userId}/${latestNotification.id}/read`), true);
+                    }
+                }
+            });
+        }
+
+        // NEW: Real-time attendance updates
+        function setupRealtimeAttendance(standard) {
+            const attendanceRef = ref(realtimeDb, `attendance/${standard}`);
+            
+            onValue(attendanceRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data && currentUserData.role === 'teacher') {
+                    // Update attendance display in real-time
+                    updateAttendanceDisplay(data);
+                }
+            });
+        }
 
         // Populate toppers slider
         function populateToppers() {
@@ -1784,7 +2298,13 @@
                         }
                         
                         // Successful login
-                        alert(`Login successful as ${role}!`);
+                        showNotification(`Login successful as ${role}!`, 'success');
+                        
+                        // NEW: Setup real-time features
+                        setupRealtimeNotifications(user.uid);
+                        if (userData.standard) {
+                            setupRealtimeAttendance(userData.standard);
+                        }
                         
                         // Close login modal
                         const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
@@ -1814,7 +2334,7 @@
                         name: user.email.split('@')[0]
                     };
                     
-                    alert(`Login successful as ${role}!`);
+                    showNotification(`Login successful as ${role}!`, 'success');
                     const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
                     loginModal.hide();
                     showDashboard(role, currentUserData);
@@ -1849,21 +2369,18 @@
                     lastUpdated: new Date()
                 });
                 
+                // NEW: Also save to Realtime Database for real-time features
+                await saveToRealtimeDB(`users/${user.uid}`, {
+                    ...userData,
+                    email: email,
+                    lastActive: new Date().toISOString()
+                });
+                
                 return { success: true, user: user, password: password };
             } catch (error) {
                 console.error("Error creating user:", error);
                 return { success: false, error: error.message };
             }
-        }
-
-        // Generate random password
-        function generatePassword() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let password = '';
-            for (let i = 0; i < 8; i++) {
-                password += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return password;
         }
 
         // Get actual statistics from Firestore
@@ -1884,25 +2401,25 @@
                 const admissionsSnapshot = await getDocs(admissionsQuery);
                 const pendingAdmissionsCount = admissionsSnapshot.size;
                 
-                // Calculate average attendance
-                let totalAttendance = 0;
+                // Calculate average attendance in days
+                let totalAttendanceDays = 0;
                 let attendanceCount = 0;
                 
                 studentsSnapshot.forEach((doc) => {
                     const student = doc.data();
-                    if (student.attendance) {
-                        totalAttendance += student.attendance;
+                    if (student.attendanceDays) {
+                        totalAttendanceDays += student.attendanceDays;
                         attendanceCount++;
                     }
                 });
                 
-                const averageAttendance = attendanceCount > 0 ? Math.round(totalAttendance / attendanceCount) : 0;
+                const averageAttendanceDays = attendanceCount > 0 ? Math.round(totalAttendanceDays / attendanceCount) : 0;
                 
                 return {
                     studentCount,
                     teacherCount,
                     pendingAdmissionsCount,
-                    averageAttendance
+                    averageAttendanceDays
                 };
             } catch (error) {
                 console.error("Error getting statistics: ", error);
@@ -1910,7 +2427,7 @@
                     studentCount: 0,
                     teacherCount: 0,
                     pendingAdmissionsCount: 0,
-                    averageAttendance: 0
+                    averageAttendanceDays: 0
                 };
             }
         }
@@ -2037,7 +2554,7 @@
                 rollNo: userData.rollNo || 'N/A',
                 casteCategory: userData.casteCategory || 'N/A',
                 percentage: userData.percentage || 0,
-                attendance: userData.attendance || 0,
+                attendanceDays: userData.attendanceDays || 0,
                 marks: userData.marks || {},
                 rank: userData.rank || 'N/A'
             };
@@ -2068,8 +2585,8 @@
                     </div>
                     <div class="col-md-3">
                         <div class="stats-card">
-                            <div class="stats-number">${safeUserData.attendance}%</div>
-                            <div class="stats-label">Attendance</div>
+                            <div class="stats-number">${safeUserData.attendanceDays}</div>
+                            <div class="stats-label">Attendance (Days)</div>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -2146,8 +2663,8 @@
                     </div>
                     <div class="col-md-3">
                         <div class="stats-card">
-                            <div class="stats-number">${stats.averageAttendance || 0}%</div>
-                            <div class="stats-label">Class Attendance</div>
+                            <div class="stats-number">${stats.averageAttendanceDays || 0}</div>
+                            <div class="stats-label">Avg Attendance (Days)</div>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -2173,7 +2690,7 @@
                                     <tr>
                                         <th>Roll No</th>
                                         <th>Name</th>
-                                        <th>Attendance</th>
+                                        <th>Attendance (Days)</th>
                                         <th>Percentage</th>
                                     </tr>
                                 </thead>
@@ -2200,6 +2717,9 @@
                             </button>
                             <button class="btn btn-outline-primary" onclick="showSendNotificationForm('${userData.standard}')">
                                 <i class="fas fa-bell me-2"></i>Send Notifications
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="showAttendanceHistory()">
+                                <i class="fas fa-history me-2"></i>Attendance History
                             </button>
                         </div>
                         
@@ -2253,8 +2773,8 @@
                     </div>
                     <div class="col-md-3">
                         <div class="stats-card">
-                            <div class="stats-number">${stats.averageAttendance}%</div>
-                            <div class="stats-label">Average Attendance</div>
+                            <div class="stats-number">${stats.averageAttendanceDays}</div>
+                            <div class="stats-label">Avg Attendance (Days)</div>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -2300,6 +2820,12 @@
                         <div class="d-grid gap-2">
                             <button class="btn btn-primary" onclick="showAddUserForm()">
                                 <i class="fas fa-user-plus me-2"></i>Add New User
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="showStudentDetails()">
+                                <i class="fas fa-users me-2"></i>Student Details
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="showFeesDashboard()">
+                                <i class="fas fa-rupee-sign me-2"></i>Fees Management
                             </button>
                             <button class="btn btn-outline-primary" onclick="showEventManagement()">
                                 <i class="fas fa-calendar-alt me-2"></i>Manage Events
@@ -2361,20 +2887,20 @@
                 );
                 const studentsSnapshot = await getDocs(studentsQuery);
                 
-                let totalAttendance = 0;
+                let totalAttendanceDays = 0;
                 let totalPercentage = 0;
                 let studentCount = 0;
                 
                 studentsSnapshot.forEach(doc => {
                     const student = doc.data();
-                    if (student.attendance) totalAttendance += student.attendance;
+                    if (student.attendanceDays) totalAttendanceDays += student.attendanceDays;
                     if (student.percentage) totalPercentage += student.percentage;
                     studentCount++;
                 });
                 
                 return {
                     studentCount: studentCount,
-                    averageAttendance: studentCount > 0 ? Math.round(totalAttendance / studentCount) : 0,
+                    averageAttendanceDays: studentCount > 0 ? Math.round(totalAttendanceDays / studentCount) : 0,
                     averagePercentage: studentCount > 0 ? Math.round(totalPercentage / studentCount) : 0,
                     pendingEvaluations: 0
                 };
@@ -2382,7 +2908,7 @@
                 console.error("Error getting teacher statistics: ", error);
                 return { 
                     studentCount: 0, 
-                    averageAttendance: 0, 
+                    averageAttendanceDays: 0, 
                     averagePercentage: 0, 
                     pendingEvaluations: 0 
                 };
@@ -2410,26 +2936,41 @@
             return marksHTML;
         }
 
-        // Generate teacher students table
+        // Generate teacher students table - UPDATED: Sort by roll number
         async function generateTeacherStudentsTable(standard) {
             try {
-                const studentsQuery = query(collection(db, "users"), 
+                const studentsQuery = query(
+                    collection(db, "users"), 
                     where("role", "==", "student"), 
-                    where("standard", "==", standard));
+                    where("standard", "==", standard)
+                );
                 const studentsSnapshot = await getDocs(studentsQuery);
                 
                 if (studentsSnapshot.empty) {
                     return '<tr><td colspan="4" class="text-center">No students in this class</td></tr>';
                 }
                 
-                let studentsHTML = '';
+                let students = [];
                 studentsSnapshot.forEach(doc => {
                     const student = doc.data();
+                    student.id = doc.id;
+                    students.push(student);
+                });
+                
+                // Sort students by roll number
+                students.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
+                
+                let studentsHTML = '';
+                students.forEach(student => {
                     studentsHTML += `
                         <tr>
                             <td>${student.rollNo || 'N/A'}</td>
                             <td>${student.name}</td>
-                            <td>${student.attendance || 0}%</td>
+                            <td>${student.attendanceDays || 0}</td>
                             <td>${student.percentage || 0}%</td>
                         </tr>
                     `;
@@ -2643,60 +3184,7 @@
         // Get principal modals HTML
         function getPrincipalModals() {
             return `
-                <!-- Add User Modal -->
-                <div class="modal fade" id="addUserModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Add New User</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="addUserForm">
-                                    <div class="mb-3">
-                                        <label class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="newUserName" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="newUserEmail" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Role</label>
-                                        <select class="form-select" id="newUserRole" required>
-                                            <option value="" selected disabled>Select Role</option>
-                                            <option value="student">Student</option>
-                                            <option value="teacher">Teacher</option>
-                                            <option value="principal">Principal</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3" id="newUserStandardField" style="display: none;">
-                                        <label class="form-label">Standard</label>
-                                        <select class="form-select" id="newUserStandard">
-                                            <option value="" selected disabled>Select Standard</option>
-                                            <option value="1">1st Standard</option>
-                                            <option value="2">2nd Standard</option>
-                                            <option value="3">3rd Standard</option>
-                                            <option value="4">4th Standard</option>
-                                            <option value="5">5th Standard</option>
-                                            <option value="6">6th Standard</option>
-                                            <option value="7">7th Standard</option>
-                                            <option value="8">8th Standard</option>
-                                            <option value="9">9th Standard</option>
-                                            <option value="10">10th Standard</option>
-                                            <option value="11">11th Standard</option>
-                                            <option value="12">12th Standard</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary" onclick="addNewUser()">Add User</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Add User Modal is now defined in HTML above with password fields -->
 
                 <!-- Manage Events Modal -->
                 <div class="modal fade" id="manageEventsModal">
@@ -2823,6 +3311,398 @@
             `;
         }
 
+        // NEW: Show Student Details for Principal
+        window.showStudentDetails = function() {
+            const modal = new bootstrap.Modal(document.getElementById('studentDetailsModal'));
+            
+            // Load classes for the select
+            loadClassesForSelect('principalClassSelect');
+            
+            // Add event listener for class change
+            document.getElementById('principalClassSelect').addEventListener('change', function() {
+                const standard = this.value;
+                if (standard) {
+                    loadStudentsForPrincipal(standard);
+                }
+            });
+            
+            modal.show();
+        };
+
+        // NEW: Show Fees Dashboard for Principal
+        window.showFeesDashboard = function() {
+            const modal = new bootstrap.Modal(document.getElementById('feesDashboardModal'));
+            
+            // Load classes for the select
+            loadClassesForSelect('feesClassSelect');
+            
+            // Add event listener for class change
+            document.getElementById('feesClassSelect').addEventListener('change', function() {
+                const standard = this.value;
+                if (standard) {
+                    loadStudentsForFees(standard);
+                }
+            });
+            
+            modal.show();
+        };
+
+        // NEW: Show Attendance History for Teacher
+        window.showAttendanceHistory = function() {
+            const modal = new bootstrap.Modal(document.getElementById('attendanceHistoryModal'));
+            
+            // Load classes for the select
+            loadClassesForSelect('historyClassSelect');
+            
+            // Set default date range (last 30 days)
+            const today = new Date();
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            document.getElementById('historyDateFrom').value = thirtyDaysAgo.toISOString().split('T')[0];
+            document.getElementById('historyDateTo').value = today.toISOString().split('T')[0];
+            
+            // Add event listener for filters
+            document.getElementById('historyClassSelect').addEventListener('change', loadAttendanceHistory);
+            document.getElementById('historyDateFrom').addEventListener('change', loadAttendanceHistory);
+            document.getElementById('historyDateTo').addEventListener('change', loadAttendanceHistory);
+            
+            // Load initial data
+            loadAttendanceHistory();
+            
+            modal.show();
+        };
+
+        // NEW: Load classes for select dropdowns
+        async function loadClassesForSelect(selectId) {
+            try {
+                const usersSnapshot = await getDocs(collection(db, 'users'));
+                const standardsSet = new Set();
+                
+                usersSnapshot.forEach(doc => {
+                    const userData = doc.data();
+                    if (userData.standard && userData.role === 'student') {
+                        standardsSet.add(userData.standard);
+                    }
+                });
+                
+                const classes = Array.from(standardsSet).sort();
+                const classSelect = document.getElementById(selectId);
+                
+                classSelect.innerHTML = '<option value="">-- Select Class --</option>';
+                classes.forEach(classItem => {
+                    const option = document.createElement('option');
+                    option.value = classItem;
+                    option.textContent = `Class ${classItem}`;
+                    classSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading classes for select:', error);
+            }
+        }
+
+        // NEW: Load students for principal dashboard
+        async function loadStudentsForPrincipal(standard) {
+            try {
+                const studentsQuery = query(
+                    collection(db, "users"), 
+                    where("role", "==", "student"), 
+                    where("standard", "==", standard)
+                );
+                const studentsSnapshot = await getDocs(studentsQuery);
+                
+                const studentsTable = document.getElementById('principalStudentsTable');
+                studentsTable.innerHTML = '';
+                
+                if (studentsSnapshot.empty) {
+                    studentsTable.innerHTML = '<tr><td colspan="7" class="text-center">No students found</td></tr>';
+                    return;
+                }
+                
+                let students = [];
+                studentsSnapshot.forEach(doc => {
+                    const student = doc.data();
+                    student.id = doc.id;
+                    students.push(student);
+                });
+                
+                // Sort students by roll number
+                students.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
+                
+                students.forEach(student => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.rollNo || 'N/A'}</td>
+                        <td>${student.name}</td>
+                        <td><span class="badge badge-caste-${student.casteCategory || 'general'}">${(student.casteCategory || 'general').toUpperCase()}</span></td>
+                        <td>${student.attendanceDays || 0}</td>
+                        <td>${student.percentage || 0}%</td>
+                        <td>${getFeesStatus(student)}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="viewStudentDetails('${student.id}')">View</button>
+                        </td>
+                    `;
+                    studentsTable.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading students for principal:', error);
+                document.getElementById('principalStudentsTable').innerHTML = '<tr><td colspan="7" class="text-center">Error loading students</td></tr>';
+            }
+        }
+
+        // NEW: Load students for fees dashboard
+        async function loadStudentsForFees(standard) {
+            try {
+                const studentsQuery = query(
+                    collection(db, "users"), 
+                    where("role", "==", "student"), 
+                    where("standard", "==", standard)
+                );
+                const studentsSnapshot = await getDocs(studentsQuery);
+                
+                const feesTable = document.getElementById('feesStudentsTable');
+                feesTable.innerHTML = '';
+                
+                if (studentsSnapshot.empty) {
+                    feesTable.innerHTML = '<tr><td colspan="7" class="text-center">No students found</td></tr>';
+                    return;
+                }
+                
+                let students = [];
+                studentsSnapshot.forEach(doc => {
+                    const student = doc.data();
+                    student.id = doc.id;
+                    students.push(student);
+                });
+                
+                // Sort students by roll number
+                students.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
+                
+                students.forEach(student => {
+                    const totalFees = student.totalFees || 0;
+                    const paidFees = student.paidFees || 0;
+                    const dueFees = totalFees - paidFees;
+                    const lastPaymentDate = student.lastPaymentDate ? new Date(student.lastPaymentDate).toLocaleDateString() : 'N/A';
+                    
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.rollNo || 'N/A'}</td>
+                        <td>${student.name}</td>
+                        <td>₹${totalFees}</td>
+                        <td>₹${paidFees}</td>
+                        <td>₹${dueFees}</td>
+                        <td>${lastPaymentDate}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="updateStudentFees('${student.id}', '${student.name}', ${totalFees}, ${paidFees})">Update</button>
+                        </td>
+                    `;
+                    feesTable.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading students for fees:', error);
+                document.getElementById('feesStudentsTable').innerHTML = '<tr><td colspan="7" class="text-center">Error loading students</td></tr>';
+            }
+        }
+
+        // NEW: Load attendance history
+        async function loadAttendanceHistory() {
+            try {
+                const classSelect = document.getElementById('historyClassSelect');
+                const dateFrom = document.getElementById('historyDateFrom').value;
+                const dateTo = document.getElementById('historyDateTo').value;
+                
+                if (!dateFrom || !dateTo) {
+                    document.getElementById('attendanceHistoryTable').innerHTML = '<tr><td colspan="8" class="text-center">Please select date range</td></tr>';
+                    return;
+                }
+                
+                const startDate = new Date(dateFrom);
+                const endDate = new Date(dateTo);
+                endDate.setHours(23, 59, 59, 999); // End of day
+                
+                let attendanceQuery;
+                
+                if (classSelect.value) {
+                    // Filter by class
+                    attendanceQuery = query(
+                        collection(db, "attendance"),
+                        where("standard", "==", classSelect.value),
+                        where("date", ">=", Timestamp.fromDate(startDate)),
+                        where("date", "<=", Timestamp.fromDate(endDate)),
+                        orderBy("date", "desc")
+                    );
+                } else {
+                    // Get all classes
+                    attendanceQuery = query(
+                        collection(db, "attendance"),
+                        where("date", ">=", Timestamp.fromDate(startDate)),
+                        where("date", "<=", Timestamp.fromDate(endDate)),
+                        orderBy("date", "desc")
+                    );
+                }
+                
+                const attendanceSnapshot = await getDocs(attendanceQuery);
+                
+                const historyTable = document.getElementById('attendanceHistoryTable');
+                historyTable.innerHTML = '';
+                
+                if (attendanceSnapshot.empty) {
+                    historyTable.innerHTML = '<tr><td colspan="8" class="text-center">No attendance records found</td></tr>';
+                    return;
+                }
+                
+                // Group attendance by date and class
+                const attendanceByDate = {};
+                
+                attendanceSnapshot.forEach(doc => {
+                    const record = doc.data();
+                    const date = record.date.toDate().toLocaleDateString();
+                    const classKey = record.standard;
+                    
+                    if (!attendanceByDate[date]) {
+                        attendanceByDate[date] = {};
+                    }
+                    
+                    if (!attendanceByDate[date][classKey]) {
+                        attendanceByDate[date][classKey] = {
+                            present: 0,
+                            absent: 0,
+                            late: 0,
+                            leftEarly: 0,
+                            markedBy: record.markedBy,
+                            timestamp: record.markedAt
+                        };
+                    }
+                    
+                    if (record.status === 'present') attendanceByDate[date][classKey].present++;
+                    if (record.status === 'absent') attendanceByDate[date][classKey].absent++;
+                    if (record.status === 'late') attendanceByDate[date][classKey].late++;
+                    if (record.status === 'left-early') attendanceByDate[date][classKey].leftEarly++;
+                });
+                
+                // Display grouped attendance
+                Object.keys(attendanceByDate).forEach(date => {
+                    Object.keys(attendanceByDate[date]).forEach(classKey => {
+                        const record = attendanceByDate[date][classKey];
+                        const row = document.createElement('tr');
+                        
+                        // Get teacher name who marked attendance
+                        let markedByName = 'Unknown';
+                        if (record.markedBy) {
+                            // In a real app, you would fetch the teacher's name from Firestore
+                            markedByName = 'Teacher';
+                        }
+                        
+                        row.innerHTML = `
+                            <td>${date}</td>
+                            <td>Class ${classKey}</td>
+                            <td>${record.present}</td>
+                            <td>${record.absent}</td>
+                            <td>${record.late}</td>
+                            <td>${record.leftEarly}</td>
+                            <td>${markedByName}</td>
+                            <td>${record.timestamp ? new Date(record.timestamp.toDate ? record.timestamp.toDate() : record.timestamp).toLocaleTimeString() : 'N/A'}</td>
+                        `;
+                        historyTable.appendChild(row);
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading attendance history:', error);
+                document.getElementById('attendanceHistoryTable').innerHTML = '<tr><td colspan="8" class="text-center">Error loading attendance history</td></tr>';
+            }
+        }
+
+        // NEW: Get fees status for student
+        function getFeesStatus(student) {
+            const totalFees = student.totalFees || 0;
+            const paidFees = student.paidFees || 0;
+            
+            if (paidFees >= totalFees) {
+                return '<span class="badge bg-success">Paid</span>';
+            } else if (paidFees > 0) {
+                return '<span class="badge bg-warning">Partial</span>';
+            } else {
+                return '<span class="badge bg-danger">Pending</span>';
+            }
+        }
+
+        // NEW: Update student fees
+        window.updateStudentFees = function(studentId, studentName, totalFees, paidFees) {
+            document.getElementById('updateFeesStudentId').value = studentId;
+            document.getElementById('updateFeesStudentName').value = studentName;
+            document.getElementById('updateFeesTotal').value = totalFees;
+            document.getElementById('updateFeesPaid').value = paidFees;
+            document.getElementById('updateFeesDate').value = new Date().toISOString().split('T')[0];
+            
+            const modal = new bootstrap.Modal(document.getElementById('updateFeesModal'));
+            modal.show();
+        };
+
+        // NEW: Save fees update
+        window.saveFeesUpdate = async function() {
+            const studentId = document.getElementById('updateFeesStudentId').value;
+            const totalFees = parseFloat(document.getElementById('updateFeesTotal').value);
+            const paidFees = parseFloat(document.getElementById('updateFeesPaid').value);
+            const paymentDate = document.getElementById('updateFeesDate').value;
+            
+            if (!studentId || isNaN(totalFees) || isNaN(paidFees) || !paymentDate) {
+                showNotification('Please fill all fields correctly', 'error');
+                return;
+            }
+            
+            if (paidFees > totalFees) {
+                showNotification('Paid fees cannot be more than total fees', 'error');
+                return;
+            }
+            
+            try {
+                await updateDoc(doc(db, "users", studentId), {
+                    totalFees: totalFees,
+                    paidFees: paidFees,
+                    lastPaymentDate: new Date(paymentDate),
+                    lastUpdated: new Date()
+                });
+                
+                showNotification('Fees updated successfully!', 'success');
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('updateFeesModal'));
+                modal.hide();
+                
+                // Refresh fees table if open
+                const feesClassSelect = document.getElementById('feesClassSelect');
+                if (feesClassSelect.value) {
+                    loadStudentsForFees(feesClassSelect.value);
+                }
+                
+            } catch (error) {
+                console.error('Error updating fees:', error);
+                showNotification('Error updating fees. Please try again.', 'error');
+            }
+        };
+
+        // NEW: View student details
+        window.viewStudentDetails = async function(studentId) {
+            try {
+                const studentDoc = await getDoc(doc(db, "users", studentId));
+                if (studentDoc.exists()) {
+                    const student = studentDoc.data();
+                    alert(`Student Details:\n\nName: ${student.name}\nClass: ${student.standard}\nRoll No: ${student.rollNo || 'N/A'}\nCaste: ${student.casteCategory || 'N/A'}\nAttendance Days: ${student.attendanceDays || 0}\nPercentage: ${student.percentage || 0}%\nFees Status: ${getFeesStatus(student).replace(/<[^>]*>/g, '')}`);
+                }
+            } catch (error) {
+                console.error('Error viewing student details:', error);
+                showNotification('Error loading student details', 'error');
+            }
+        };
+
         // Teacher dashboard functions
         window.showAddStudentForm = function(standard) {
             const modal = new bootstrap.Modal(document.getElementById('addStudentModal'));
@@ -2832,21 +3712,36 @@
         window.showUpdateRollNumbers = async function(standard) {
             // Load students for the class
             try {
-                const studentsQuery = query(collection(db, "users"), 
+                const studentsQuery = query(
+                    collection(db, "users"), 
                     where("role", "==", "student"), 
-                    where("standard", "==", standard));
+                    where("standard", "==", standard)
+                );
                 const studentsSnapshot = await getDocs(studentsQuery);
                 
-                let studentsHTML = '';
+                let students = [];
                 studentsSnapshot.forEach(doc => {
                     const student = doc.data();
+                    student.id = doc.id;
+                    students.push(student);
+                });
+                
+                // Sort students by current roll number
+                students.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
+                
+                let studentsHTML = '';
+                students.forEach(student => {
                     studentsHTML += `
                         <tr>
                             <td>${student.rollNo || 'N/A'}</td>
                             <td>${student.name}</td>
                             <td>
                                 <input type="number" class="form-control" value="${student.rollNo || ''}" 
-                                       data-id="${doc.id}">
+                                       data-id="${student.id}">
                             </td>
                         </tr>
                     `;
@@ -2884,21 +3779,36 @@
         window.showUploadMarksForm = async function(standard) {
             // Load students for the class
             try {
-                const studentsQuery = query(collection(db, "users"), 
+                const studentsQuery = query(
+                    collection(db, "users"), 
                     where("role", "==", "student"), 
-                    where("standard", "==", standard));
+                    where("standard", "==", standard)
+                );
                 const studentsSnapshot = await getDocs(studentsQuery);
                 
-                let marksHTML = '';
+                let students = [];
                 studentsSnapshot.forEach(doc => {
                     const student = doc.data();
+                    student.id = doc.id;
+                    students.push(student);
+                });
+                
+                // Sort students by roll number
+                students.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
+                
+                let marksHTML = '';
+                students.forEach(student => {
                     marksHTML += `
                         <tr>
                             <td>${student.rollNo || 'N/A'}</td>
                             <td>${student.name}</td>
                             <td>
                                 <input type="number" class="form-control" min="0" max="100" 
-                                       data-id="${doc.id}">
+                                       data-id="${student.id}">
                             </td>
                         </tr>
                     `;
@@ -3011,9 +3921,11 @@
                     parentEmail: parentEmail,
                     casteCategory: caste,
                     role: 'student',
-                    attendance: 100,
+                    attendanceDays: 0,
                     percentage: 0,
-                    marks: {}
+                    marks: {},
+                    totalFees: 0,
+                    paidFees: 0
                 };
                 
                 const result = await createUserWithRole(studentEmail, password, userData);
@@ -3036,6 +3948,82 @@
             } catch (error) {
                 console.error('Error adding student:', error);
                 alert('Error adding student. Please try again.');
+            }
+        };
+
+        // UPDATED: Add New User with Custom Password
+        window.addNewUser = async function() {
+            const name = document.getElementById('newUserName').value;
+            const email = document.getElementById('newUserEmail').value;
+            const role = document.getElementById('newUserRole').value;
+            const standard = document.getElementById('newUserStandard').value;
+            const password = document.getElementById('newUserPassword').value;
+            const confirmPassword = document.getElementById('newUserConfirmPassword').value;
+            
+            if (!name || !email || !role || !password) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            if ((role === 'student' || role === 'teacher') && !standard) {
+                alert('Please select a standard for this user');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = document.querySelector('#addUserModal .btn-primary');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating User...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Prepare user data
+                const userData = {
+                    name: name,
+                    role: role,
+                    standard: (role === 'student' || role === 'teacher') ? standard : null,
+                    attendanceDays: role === 'student' ? 0 : null,
+                    percentage: role === 'student' ? 0 : null,
+                    marks: role === 'student' ? {} : null,
+                    totalFees: role === 'student' ? 0 : null,
+                    paidFees: role === 'student' ? 0 : null
+                };
+                
+                const result = await createUserWithRole(email, password, userData);
+                
+                if (result.success) {
+                    showNotification(`User added successfully!`, 'success');
+                    
+                    // Close modal and reset form
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
+                    modal.hide();
+                    document.getElementById('addUserForm').reset();
+                    
+                    // Refresh the dashboard if principal
+                    if (currentUserData.role === 'principal') {
+                        showDashboard('principal', currentUserData);
+                    }
+                } else {
+                    alert('Error adding user: ' + result.error);
+                }
+                
+            } catch (error) {
+                console.error('Error adding user:', error);
+                alert('Error adding user. Please try again.');
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
             }
         };
 
@@ -3141,6 +4129,7 @@
             }
         };
 
+        // UPDATED: Send Notification - Now stores in Firestore for students to see
         window.sendNotification = async function(standard) {
             const title = document.getElementById('notificationTitle').value;
             const message = document.getElementById('notificationMessage').value;
@@ -3153,9 +4142,11 @@
             
             try {
                 // Get students in the class
-                const studentsQuery = query(collection(db, "users"), 
+                const studentsQuery = query(
+                    collection(db, "users"), 
                     where("role", "==", "student"), 
-                    where("standard", "==", standard));
+                    where("standard", "==", standard)
+                );
                 const studentsSnapshot = await getDocs(studentsQuery);
                 
                 // Create notification for each student
@@ -3169,7 +4160,9 @@
                         message: message,
                         priority: priority,
                         timestamp: new Date(),
-                        read: false
+                        read: false,
+                        sentBy: currentUser.uid,
+                        sentByName: currentUserData.name || 'Teacher'
                     });
                 });
                 
@@ -3233,69 +4226,6 @@
                 } else {
                     alert('Error changing password: ' + error.message);
                 }
-            }
-        };
-
-        window.addNewUser = async function() {
-            const name = document.getElementById('newUserName').value;
-            const email = document.getElementById('newUserEmail').value;
-            const role = document.getElementById('newUserRole').value;
-            const standard = document.getElementById('newUserStandard').value;
-            
-            if (!name || !email || !role) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            if ((role === 'student' || role === 'teacher') && !standard) {
-                alert('Please select a standard for this user');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = document.querySelector('#addUserModal .btn-primary');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating User...';
-            submitBtn.disabled = true;
-            
-            try {
-                const password = generatePassword();
-                
-                // Prepare user data
-                const userData = {
-                    name: name,
-                    role: role,
-                    standard: (role === 'student' || role === 'teacher') ? standard : null,
-                    attendance: role === 'student' ? 100 : null,
-                    percentage: role === 'student' ? 0 : null,
-                    marks: role === 'student' ? {} : null
-                };
-                
-                const result = await createUserWithRole(email, password, userData);
-                
-                if (result.success) {
-                    alert(`User added successfully!\n\nLogin Details:\nEmail: ${email}\nPassword: ${password}\n\nPlease save this password securely.`);
-                    
-                    // Close modal and reset form
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('addUserModal'));
-                    modal.hide();
-                    document.getElementById('addUserForm').reset();
-                    
-                    // Refresh the dashboard if principal
-                    if (currentUserData.role === 'principal') {
-                        showDashboard('principal', currentUserData);
-                    }
-                } else {
-                    alert('Error adding user: ' + result.error);
-                }
-                
-            } catch (error) {
-                console.error('Error adding user:', error);
-                alert('Error adding user. Please try again.');
-            } finally {
-                // Reset button state
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
             }
         };
 
@@ -3444,10 +4374,12 @@
                         address: app.address,
                         dob: app.dob,
                         gender: app.gender,
-                        attendance: 100,
+                        attendanceDays: 0,
                         percentage: 0,
                         marks: {},
-                        rollNo: await generateRollNumber(app.applyingFor)
+                        rollNo: await generateRollNumber(app.applyingFor),
+                        totalFees: 0,
+                        paidFees: 0
                     };
                     
                     const result = await createUserWithRole(studentEmail, password, studentData);
@@ -3494,6 +4426,16 @@
                 console.error("Error generating roll number:", error);
                 return 1;
             }
+        }
+
+        // Generate random password
+        function generatePassword() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let password = '';
+            for (let i = 0; i < 8; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return password;
         }
 
         // Reject admission application
@@ -3545,7 +4487,7 @@
             });
         };
 
-        // Load student notifications
+        // UPDATED: Load student notifications - Now fetches from Firestore
         async function loadStudentNotifications(studentId) {
             try {
                 const notificationsQuery = query(
@@ -3576,7 +4518,7 @@
                         <div class="list-group-item">
                             <h6>${notification.title}</h6>
                             <p class="mb-1">${notification.message}</p>
-                            <small class="text-muted">${notificationDate.toLocaleDateString()}</small>
+                            <small class="text-muted">From: ${notification.sentByName || 'Teacher'} • ${notificationDate.toLocaleDateString()}</small>
                         </div>
                     `;
                 });
@@ -3585,72 +4527,80 @@
             }
         }
 
-        // Save attendance function
-        window.saveAttendance = async function(standard) {
+        // UPDATED: Save attendance function - Now tracks attendance in days
+        window.saveAttendance = async function() {
             const attendanceDate = document.getElementById('attendanceDate').value;
+            const standard = document.getElementById('attendanceClass').value;
             const attendanceSelects = document.querySelectorAll('.attendance-select');
             
-            if (!attendanceDate) {
-                alert('Please select a date');
+            if (!attendanceDate || !standard) {
+                showNotification('Please select date and class', 'error');
                 return;
             }
             
             try {
+                // NEW: Save to Realtime Database for real-time updates
+                const realtimeAttendance = {};
+                
                 for (const select of attendanceSelects) {
                     const studentId = select.getAttribute('data-id');
                     const status = select.value;
                     
-                    // Save attendance record
+                    // Save attendance record to Firestore
                     await addDoc(collection(db, "attendance"), {
                         studentId: studentId,
-                        date: attendanceDate,
+                        date: new Date(attendanceDate),
                         status: status,
                         standard: standard,
                         markedBy: currentUser.uid,
                         markedAt: new Date()
                     });
                     
-                    // Update student's overall attendance percentage
-                    await updateStudentAttendance(studentId);
+                    // Update real-time data
+                    realtimeAttendance[studentId] = {
+                        status: status,
+                        timestamp: new Date().toISOString(),
+                        markedBy: currentUser.uid
+                    };
+                    
+                    // Update student's attendance days count
+                    await updateStudentAttendanceDays(studentId, status);
                 }
                 
-                alert('Attendance saved successfully!');
+                // Save to Realtime Database
+                await saveToRealtimeDB(`attendance/${standard}/${attendanceDate}`, realtimeAttendance);
+                
+                showNotification('Attendance saved successfully!', 'success');
                 const modal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
                 modal.hide();
                 
             } catch (error) {
                 console.error('Error saving attendance:', error);
-                alert('Error saving attendance. Please try again.');
+                showNotification('Error saving attendance. Please try again.', 'error');
             }
         };
 
-        // Update student attendance percentage
-        async function updateStudentAttendance(studentId) {
+        // NEW: Update student attendance days count
+        async function updateStudentAttendanceDays(studentId, status) {
             try {
-                const attendanceQuery = query(
-                    collection(db, "attendance"),
-                    where("studentId", "==", studentId)
-                );
-                const attendanceSnapshot = await getDocs(attendanceQuery);
+                // Get current student data
+                const studentDoc = await getDoc(doc(db, "users", studentId));
+                const studentData = studentDoc.data();
                 
-                let presentCount = 0;
-                let totalCount = 0;
+                let currentAttendanceDays = studentData.attendanceDays || 0;
                 
-                attendanceSnapshot.forEach(doc => {
-                    const record = doc.data();
-                    if (record.status === 'present') presentCount++;
-                    totalCount++;
-                });
-                
-                const attendancePercentage = totalCount > 0 ? Math.round((presentCount / totalCount) * 100) : 100;
+                // Only increment if student is present
+                if (status === 'present') {
+                    currentAttendanceDays++;
+                }
                 
                 await updateDoc(doc(db, "users", studentId), {
-                    attendance: attendancePercentage,
+                    attendanceDays: currentAttendanceDays,
                     lastUpdated: new Date()
                 });
                 
             } catch (error) {
-                console.error("Error updating student attendance:", error);
+                console.error("Error updating student attendance days:", error);
             }
         }
 
@@ -3769,13 +4719,13 @@
                     // Refresh the dashboard to show the new photo
                     showDashboard(currentUserData.role, currentUserData);
                     
-                    alert('Profile photo updated successfully!');
+                    showNotification('Profile photo updated successfully!', 'success');
                 }, 1000);
                 
             } catch (error) {
                 console.error('Error uploading photo to Cloudinary:', error);
                 document.getElementById('uploadStatus').textContent = 'Upload failed. Please try again.';
-                alert('Error uploading photo. Please try again.');
+                showNotification('Error uploading photo. Please try again.', 'error');
             }
         }
 
@@ -3791,6 +4741,14 @@
             const modal = new bootstrap.Modal(document.getElementById('imageUploadModal'));
             modal.show();
         };
+
+        // NEW: Update attendance display for real-time updates
+        function updateAttendanceDisplay(attendanceData) {
+            // This function would update the attendance display in real-time
+            // when changes are detected in the Realtime Database
+            console.log('Real-time attendance update:', attendanceData);
+            // Implementation would depend on your specific UI requirements
+        }
 
         // Attendance System Functions
         async function loadClassesForAttendance() {
@@ -3849,7 +4807,12 @@
                     attendanceStudents.push(student);
                 });
                 
-                attendanceStudents.sort((a, b) => (a.rollNo || 0) - (b.rollNo || 0));
+                // Sort students by roll number
+                attendanceStudents.sort((a, b) => {
+                    const rollA = a.rollNo || 9999;
+                    const rollB = b.rollNo || 9999;
+                    return rollA - rollB;
+                });
                 
                 // Set default status to present
                 attendanceStudents.forEach(student => {
@@ -3938,68 +4901,6 @@
             document.getElementById('absentCount').textContent = absent;
             document.getElementById('lateCount').textContent = late;
             document.getElementById('leftEarlyCount').textContent = leftEarly;
-        }
-
-        async function saveAttendance() {
-            const date = document.getElementById('attendanceDate').value;
-            const standard = document.getElementById('attendanceClass').value;
-            
-            if (!date || !standard) {
-                showNotification('Please select date and class', 'error');
-                return;
-            }
-            
-            if (attendanceStudents.length === 0) {
-                showNotification('No students to save', 'error');
-                return;
-            }
-            
-            try {
-                const batch = writeBatch(db);
-                
-                // Remove existing records for this date and class
-                const existingRecordsQuery = query(
-                    collection(db, 'attendance'),
-                    where('date', '==', date),
-                    where('standard', '==', standard)
-                );
-                
-                const existingRecordsSnapshot = await getDocs(existingRecordsQuery);
-                existingRecordsSnapshot.forEach(doc => {
-                    batch.delete(doc.ref);
-                });
-                
-                // Add new records
-                attendanceStudents.forEach(student => {
-                    const recordRef = doc(collection(db, 'attendance'));
-                    batch.set(recordRef, {
-                        studentId: student.id,
-                        standard: standard,
-                        date: date,
-                        status: student.attendanceStatus || 'present',
-                        timestamp: new Date(),
-                        studentName: student.name,
-                        rollNo: student.rollNo
-                    });
-                });
-                
-                await batch.commit();
-                
-                // Update student attendance percentages
-                for (const student of attendanceStudents) {
-                    await updateStudentAttendance(student.id);
-                }
-                
-                showNotification('Attendance saved successfully');
-                
-                // Close modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
-                modal.hide();
-                
-            } catch (error) {
-                console.error('Error saving attendance:', error);
-                showNotification('Error saving attendance', 'error');
-            }
         }
 
         function markAllAsPresent() {
@@ -4119,7 +5020,7 @@
                     status: 'pending',
                     timestamp: new Date()
                 }).then(() => {
-                    alert(`Thank you ${studentName}! Your application for Class ${applyingFor} has been submitted successfully. We will contact you soon.`);
+                    showNotification(`Thank you ${studentName}! Your application for Class ${applyingFor} has been submitted successfully. We will contact you soon.`, 'success');
                     
                     // Close modal
                     const admissionModal = bootstrap.Modal.getInstance(document.getElementById('admissionModal'));
@@ -4129,7 +5030,7 @@
                     admissionForm.reset();
                 }).catch((error) => {
                     console.error("Error adding document: ", error);
-                    alert("There was an error submitting your application. Please try again.");
+                    showNotification("There was an error submitting your application. Please try again.", 'error');
                 });
             });
             
@@ -4143,11 +5044,11 @@
                     email: email,
                     timestamp: new Date()
                 }).then(() => {
-                    alert('Thank you for subscribing to our newsletter!');
+                    showNotification('Thank you for subscribing to our newsletter!', 'success');
                     this.reset();
                 }).catch((error) => {
                     console.error("Error adding document: ", error);
-                    alert("There was an error with your subscription. Please try again.");
+                    showNotification("There was an error with your subscription. Please try again.", 'error');
                 });
             });
 
@@ -4173,7 +5074,7 @@
             
             document.getElementById('markAllPresent').addEventListener('click', markAllAsPresent);
             document.getElementById('markAllAbsent').addEventListener('click', markAllAsAbsent);
-            document.getElementById('saveAttendance').addEventListener('click', saveAttendance);
+            document.getElementById('saveAttendance').addEventListener('click', window.saveAttendance);
             document.getElementById('closeAttendance').addEventListener('click', function() {
                 const modal = bootstrap.Modal.getInstance(document.getElementById('attendanceModal'));
                 modal.hide();
